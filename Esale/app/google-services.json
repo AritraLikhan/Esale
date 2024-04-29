@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "629592158636",
+    "project_id": "e-sale2",
+    "storage_bucket": "e-sale2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629592158636:android:14c2e838a0b929ad430a09",
+        "android_client_info": {
+          "package_name": "com.example.e_sale"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzRXOaPTlf_zWBQEMJsR0YsUi98mToIko"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
