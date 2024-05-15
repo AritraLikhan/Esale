@@ -127,6 +127,7 @@ public class RegFragment extends Fragment {
         String password = editTextPassword.getText().toString().trim();
         String confirmPassword = editTextConfirmPassword.getText().toString().trim();
 
+
         // Perform validation
         if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             Toast.makeText(getContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
@@ -186,9 +187,5 @@ public class RegFragment extends Fragment {
 
 
     }
-
-
-
-
 
 }
