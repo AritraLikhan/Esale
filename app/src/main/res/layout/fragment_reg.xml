@@ -1,0 +1,149 @@
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.reg.RegFragment">
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="171dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="30dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="26dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/register" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:textColorHint="#4D574ACD"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="18sp"
+        android:textColor="#030607"
+        android:drawableLeft="@drawable/icon_name"
+        android:drawablePadding="12dp"
+        android:background="@drawable/custom_text_field"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:hint="Username" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_text_field"
+        android:drawableLeft="@drawable/icon_email"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="#030607"
+        android:textColorHint="#4D574ACD"
+        android:textSize="18sp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_text_field"
+        android:drawableLeft="@drawable/icon_phone"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="#030607"
+        android:textColorHint="#4D574ACD"
+        android:textSize="18sp"
+        android:hint="Phone"
+        android:inputType="number"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_text_field"
+        android:drawableLeft="@drawable/icon_address"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="#030607"
+        android:textColorHint="#4D574ACD"
+        android:textSize="18sp"
+        android:hint="Address"
+        android:inputType="textMultiLine"/>
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_text_field"
+        android:drawableLeft="@drawable/icon_pass"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="#030607"
+        android:textColorHint="#4D574ACD"
+        android:textSize="18sp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_text_field"
+        android:drawableLeft="@drawable/icon_confirm"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textColor="#030607"
+        android:textColorHint="#4D574ACD"
+        android:textSize="18sp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/custom_text_field"
+        android:drawablePadding="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:text="Sign Up" />
+
+</LinearLayout>
+
