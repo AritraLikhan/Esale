@@ -8,9 +8,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_sale.R;
+import com.example.e_sale.ui.Show.HomeShowFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -18,9 +20,15 @@ import java.util.List;
 public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.ProductViewHolder> {
 
     private List<HomeProduct> products;
+    private FragmentManager fragmentManager;
 
     public HomeProductAdapter(List<com.example.e_sale.ui.home.HomeProduct> products) {
         this.products = products;
+    }
+
+    public HomeProductAdapter(List<com.example.e_sale.ui.home.HomeProduct> products, FragmentManager fragmentManager) {
+        this.products = products;
+        this.fragmentManager = fragmentManager;
     }
 
     @NonNull
@@ -35,6 +43,13 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
         holder.textViewDescription.setText(product.getName());
         // Use a library like Picasso or Glide to load the product photo into the ImageView
         Picasso.get().load(product.getPhotoUrl()).into(holder.imageViewProduct);
+        holder.imageViewProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HomeShowFragment homeShowFragment = new HomeShowFragment(product);
+                fragmentManager.beginTransaction().replace(R.id.idFragContainer, homeShowFragment).commit();
+            }
+        });
     }
 
     @Override

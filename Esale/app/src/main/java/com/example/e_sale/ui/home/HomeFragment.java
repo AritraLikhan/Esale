@@ -134,12 +134,13 @@ public class HomeFragment extends Fragment {
                     // Now you can work with the products of each user
                     for (DataSnapshot productSnapshot : productsSnapshot.getChildren()) {
                         com.example.e_sale.ui.home.HomeProduct product = productSnapshot.getValue(com.example.e_sale.ui.home.HomeProduct.class);
+                        product.setOwnerID(userSnapshot.getKey());
                         products.add(product);
                     }
                 }
 
                 // Set up RecyclerView
-                HomeProductAdapter productAdapter = new HomeProductAdapter(products);
+                HomeProductAdapter productAdapter = new HomeProductAdapter(products, getFragmentManager());
                 recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerViewProducts.setAdapter(productAdapter);
             }

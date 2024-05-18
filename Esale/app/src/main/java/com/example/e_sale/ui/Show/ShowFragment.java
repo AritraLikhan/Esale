@@ -7,8 +7,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.e_sale.R;
+import com.example.e_sale.ui.profile.Product;
+import com.example.e_sale.ui.profile.ProfileFragment;
+import com.squareup.picasso.Picasso;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,8 +32,14 @@ public class ShowFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private Product product;
+
     public ShowFragment() {
         // Required empty public constructor
+    }
+
+    public ShowFragment(Product product) {
+        this.product = product;
     }
 
     /**
@@ -61,6 +73,24 @@ public class ShowFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_show, container, false);
+        View view= inflater.inflate(R.layout.fragment_show, container, false);
+
+        TextView textViewDescription=view.findViewById(R.id.textViewDesc);
+        ImageView imageViewProduct=view.findViewById(R.id.imageViewP);
+        Button goBack = view.findViewById(R.id.buttonBackProfile);
+
+        textViewDescription.setText(product.getDescription());
+        // Use a library like Picasso or Glide to load the product photo into the ImageView
+        Picasso.get().load(product.getPhotoUrl()).into(imageViewProduct);
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfileFragment profileFragment = new ProfileFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.idFragContainer, profileFragment).commit();
+            }
+        });
+
+        return view;
     }
 }
