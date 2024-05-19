@@ -69,12 +69,23 @@ public class HomeFragment extends Fragment {
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                     DataSnapshot productsSnapshot = userSnapshot.child("Products");
                     for (DataSnapshot productSnapshot : productsSnapshot.getChildren()) {
+
+                        com.example.e_sale.ui.home.HomeProduct product = productSnapshot.getValue(com.example.e_sale.ui.home.HomeProduct.class);
+                        product.setOwnerID(userSnapshot.getKey());
+
                         HomeProduct product = productSnapshot.getValue(HomeProduct.class);
+
                         products.add(product);
                     }
                 }
 
+
+                // Set up RecyclerView
+                HomeProductAdapter productAdapter = new HomeProductAdapter(products, getFragmentManager());
+                recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
+
                 HomeProductAdapter productAdapter = HomeProductAdapter.getInstance(products);
+
                 recyclerViewProducts.setAdapter(productAdapter);
             }
 

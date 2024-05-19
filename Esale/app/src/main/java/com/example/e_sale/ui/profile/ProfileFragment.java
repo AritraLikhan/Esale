@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -120,10 +121,23 @@ public class ProfileFragment extends Fragment {
 //        });
 
 
-        buttonUpdate.setOnClickListener(new android.view.View.OnClickListener() {
+//        buttonUpdate.setOnClickListener(new android.view.View.OnClickListener() {
+//            @Override
+//            public void onClick(android.view.View v) {
+//                updateUserData();
+//            }
+//        });
+
+
+        ButtonActionFactory factory = new ButtonActionFactory();
+
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(android.view.View v) {
-                updateUserData();
+            public void onClick(View v) {
+                ButtonAction action = factory.getButtonAction(buttonUpdate);
+                if (action != null) {
+                    action.onClick(ProfileFragment.this);
+                }
             }
         });
 
@@ -137,21 +151,44 @@ public class ProfileFragment extends Fragment {
 //            }
 //        });
 
-        buttonAddProduct.setOnClickListener(new android.view.View.OnClickListener() {
+//        buttonAddProduct.setOnClickListener(new android.view.View.OnClickListener() {
+//            @Override
+//            public void onClick(android.view.View v) {
+//                getFragmentManager().beginTransaction()
+//                        .replace(R.id.idFragContainer, new UploadFragment())
+//                        .commit();
+//            }
+//        });
+
+
+        buttonAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(android.view.View v) {
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.idFragContainer, new UploadFragment())
-                        .commit();
+            public void onClick(View v) {
+                ButtonAction action = factory.getButtonAction(buttonAddProduct);
+                if (action != null) {
+                    action.onClick(ProfileFragment.this);
+                }
             }
         });
+
+
+//        buttonLogout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                logout();
+//            }
+//        });
 
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                logout();
+                ButtonAction action = factory.getButtonAction(buttonLogout);
+                if (action != null) {
+                    action.onClick(ProfileFragment.this);
+                }
             }
         });
+
 
 
         return view;
@@ -186,7 +223,7 @@ public class ProfileFragment extends Fragment {
         });
     }
 
-    private void updateUserData() {
+    protected void updateUserData() {
         // Get text from EditText fields and update user data in Firebase
 
         String userId = mAuth.getCurrentUser().getUid();
@@ -226,11 +263,12 @@ public class ProfileFragment extends Fragment {
                 List<Product> products = new ArrayList<>();
                 for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                     Product product = productSnapshot.getValue(Product.class);
+                    product.setOwnerID(userId);
                     products.add(product);
                 }
-
+                FragmentManager fragmentManager = getFragmentManager();
                 // Set up RecyclerView
-                ProductAdapter productAdapter = new ProductAdapter(products);
+                ProductAdapter productAdapter = new ProductAdapter(products, fragmentManager);
                 recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerViewProducts.setAdapter(productAdapter);
             }
@@ -243,7 +281,7 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    private void logout() {
+    protected void logout() {
         FirebaseAuth.getInstance().signOut();
         // Navigate to HomeFragment
         getFragmentManager().beginTransaction()
@@ -251,4 +289,50 @@ public class ProfileFragment extends Fragment {
                 .commit();
     }
 
+
+
 }
+
+interface ButtonAction {
+    void onClick(ProfileFragment fragment);
+}
+
+class UpdateAction implements ButtonAction {
+    @Override
+    public void onClick(ProfileFragment fragment) {
+        fragment.updateUserData();
+    }
+}
+
+
+class AddProductAction implements ButtonAction {
+    @Override
+    public void onClick(ProfileFragment fragment) {
+        fragment.getFragmentManager().beginTransaction()
+                .replace(R.id.idFragContainer, new UploadFragment())
+                .commit();
+    }
+}
+
+class LogoutAction implements ButtonAction {
+    @Override
+    public void onClick(ProfileFragment fragment) {
+        fragment.logout();
+    }
+}
+
+class ButtonActionFactory {
+    public ButtonAction getButtonAction(Button button) {
+        if (button.getId() == R.id.buttonUpdate) {
+            return new UpdateAction();
+        } else if (button.getId() == R.id.buttonAddProduct) {
+            return new AddProductAction();
+        } else if (button.getId() == R.id.buttonLogOut) {
+            return new LogoutAction();
+        }
+        return null;
+    }
+}
+
+
+
