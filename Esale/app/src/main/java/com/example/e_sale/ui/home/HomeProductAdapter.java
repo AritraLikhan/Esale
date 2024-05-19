@@ -1,6 +1,5 @@
 package com.example.e_sale.ui.home;
 
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,10 +19,31 @@ import java.util.List;
 public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.ProductViewHolder> {
 
     private List<HomeProduct> products;
+
     private FragmentManager fragmentManager;
 
-    public HomeProductAdapter(List<com.example.e_sale.ui.home.HomeProduct> products) {
+    private static HomeProductAdapter instance;
+
+    // Private constructor to prevent direct instantiation
+    private HomeProductAdapter(List<HomeProduct> products) {
         this.products = products;
+    }
+
+
+    // Static method to get the singleton instance
+    public static HomeProductAdapter getInstance(List<HomeProduct> products) {
+        if (instance == null) {
+            instance = new HomeProductAdapter(products);
+        } else {
+            instance.updateProducts(products);
+        }
+        return instance;
+    }
+
+    // Method to update the products list
+    private void updateProducts(List<HomeProduct> products) {
+        this.products = products;
+        notifyDataSetChanged();
     }
 
     public HomeProductAdapter(List<com.example.e_sale.ui.home.HomeProduct> products, FragmentManager fragmentManager) {
@@ -32,6 +52,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
     }
 
     @NonNull
+    @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_product, parent, false);
         return new ProductViewHolder(view);
@@ -39,9 +60,8 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        com.example.e_sale.ui.home.HomeProduct product = products.get(position);
+        HomeProduct product = products.get(position);
         holder.textViewDescription.setText(product.getName());
-        // Use a library like Picasso or Glide to load the product photo into the ImageView
         Picasso.get().load(product.getPhotoUrl()).into(holder.imageViewProduct);
         holder.imageViewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
