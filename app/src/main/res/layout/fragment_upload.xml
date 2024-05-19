@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.UploadFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="356dp"
+            android:layout_height="296dp"
+            android:paddingLeft="26dp"
+            android:paddingRight="26dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/products1" />
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/custom_text_field"
+            android:drawablePadding="12dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="#030607"
+            android:textColorHint="#4D574ACD"
+            android:textSize="18sp"
+            android:inputType="textMultiLine"
+            android:id="@+id/editTextProductName"
+            android:hint="Product Name"/>
+
+
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/custom_text_field"
+                android:drawablePadding="12dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:textColor="#030607"
+                android:textColorHint="#4D574ACD"
+                android:textSize="18sp"
+                android:inputType="textMultiLine"
+                android:id="@+id/editTextDescription"
+                android:hint="Product Description(e.g.brand,price)"/>
+
+
+        <Button
+            android:id="@+id/buttonUploadPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textAllCaps="false"
+            android:text="Upload Product Photo" />
+
+    </LinearLayout>
+
+
+</FrameLayout>
