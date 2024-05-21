@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,6 @@ import com.example.e_sale.R;
 import com.example.e_sale.ui.home.HomeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -75,11 +75,11 @@ public class RegFragment extends Fragment {
 //        return inflater.inflate(R.layout.fragment_reg, container, false);
 //    }
 
-    private TextInputEditText editTextUsername, editTextEmail, editTextPassword, editTextConfirmPassword, editTextAddress, editTextPhone;
+    private EditText editTextUsername, editTextEmail, editTextAddress, editTextPhone,editTextPassword, editTextConfirmPassword;
     private Button buttonSignUp;
 
-    private DatabaseReference mDatabase;
-    private FirebaseAuth mAuth;
+    public DatabaseReference mDatabase;
+    public FirebaseAuth mAuth;
 
     public static RegFragment newInstance(String s)
     {
@@ -114,7 +114,7 @@ public class RegFragment extends Fragment {
         return view;
     }
 
-    private void signUp() {
+    public void signUp() {
 
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();

@@ -18,10 +18,10 @@
         android:scaleType="fitXY"
         android:src="@drawable/register" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:textColorHint="#4D574ACD"
@@ -36,10 +36,10 @@
         android:paddingEnd="20dp"
         android:hint="Username" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -55,10 +55,10 @@
         android:inputType="textEmailAddress"/>
 
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -74,7 +74,7 @@
         android:inputType="number"/>
 
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/editTextAddress"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -90,13 +90,14 @@
         android:textColorHint="#4D574ACD"
         android:textSize="18sp"
         android:hint="Address"
-        android:inputType="textMultiLine"/>
+        android:inputType="textMultiLine"
+        />
 
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -111,10 +112,10 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/editTextConfirmPassword"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
