@@ -29,7 +29,7 @@ public class RegFragmentIntegrationTest {
     public ActivityScenarioRule<MainActivity> activityRule
             = new ActivityScenarioRule<>(MainActivity.class);
 
-    private RegFragment regFragment;
+   
 
     @Before
     public void setUp() {
