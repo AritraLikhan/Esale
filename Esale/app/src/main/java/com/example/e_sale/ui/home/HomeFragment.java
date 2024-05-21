@@ -31,6 +31,7 @@ import java.util.List;
  */
 public class HomeFragment extends Fragment {
 
+    public DatabaseReference databaseReference;
     private RecyclerView recyclerViewProducts;
     private DatabaseReference mDatabase;
 
@@ -60,7 +61,7 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    private void fetchSellerProducts() {
+    public void fetchSellerProducts() {
         DatabaseReference usersRef = mDatabase.child("users");
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -73,8 +74,6 @@ public class HomeFragment extends Fragment {
                         com.example.e_sale.ui.home.HomeProduct product = productSnapshot.getValue(com.example.e_sale.ui.home.HomeProduct.class);
                         product.setOwnerID(userSnapshot.getKey());
 
-                        HomeProduct product = productSnapshot.getValue(HomeProduct.class);
-
                         products.add(product);
                     }
                 }
@@ -84,9 +83,9 @@ public class HomeFragment extends Fragment {
                 HomeProductAdapter productAdapter = new HomeProductAdapter(products, getFragmentManager());
                 recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-                HomeProductAdapter productAdapter = HomeProductAdapter.getInstance(products);
+                HomeProductAdapter homeproductAdapter = HomeProductAdapter.getInstance(products);
 
-                recyclerViewProducts.setAdapter(productAdapter);
+                recyclerViewProducts.setAdapter(homeproductAdapter);
             }
 
             @Override
@@ -96,7 +95,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void logout() {
+    public void logout() {
         FirebaseAuth.getInstance().signOut();
         getFragmentManager().beginTransaction()
                 .replace(R.id.idFragContainer, new HomeFragment())

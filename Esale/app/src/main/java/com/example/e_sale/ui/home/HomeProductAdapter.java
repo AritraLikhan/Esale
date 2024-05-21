@@ -20,13 +20,16 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
 
     private List<HomeProduct> products;
 
-    private FragmentManager fragmentManager;
+
+
+    public static FragmentManager fragmentManager;
 
     private static HomeProductAdapter instance;
 
     // Private constructor to prevent direct instantiation
     private HomeProductAdapter(List<HomeProduct> products) {
         this.products = products;
+        this.fragmentManager = fragmentManager;
     }
 
 
@@ -36,6 +39,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
             instance = new HomeProductAdapter(products);
         } else {
             instance.updateProducts(products);
+            instance.fragmentManager = fragmentManager;
         }
         return instance;
     }
