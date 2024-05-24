@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -262,11 +263,12 @@ public class ProfileFragment extends Fragment {
                 List<Product> products = new ArrayList<>();
                 for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                     Product product = productSnapshot.getValue(Product.class);
+                    product.setOwnerID(userId);
                     products.add(product);
                 }
-
+                FragmentManager fragmentManager = getFragmentManager();
                 // Set up RecyclerView
-                ProductAdapter productAdapter = new ProductAdapter(products);
+                ProductAdapter productAdapter = new ProductAdapter(products, fragmentManager);
                 recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerViewProducts.setAdapter(productAdapter);
             }
