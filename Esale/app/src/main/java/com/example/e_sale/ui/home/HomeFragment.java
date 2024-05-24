@@ -95,10 +95,4 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    public void logout() {
-        FirebaseAuth.getInstance().signOut();
-        getFragmentManager().beginTransaction()
-                .replace(R.id.idFragContainer, new HomeFragment())
-                .commit();
-    }
 }

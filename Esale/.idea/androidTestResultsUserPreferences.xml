@@ -3,6 +3,19 @@
   <component name="AndroidTestResultsUserPreferences">
     <option name="androidTestResultsTableState">
       <map>
+        <entry key="-2134747903">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="vivo V2037" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-2014670095">
           <value>
             <AndroidTestResultsTableState>
@@ -37,6 +50,7 @@
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_7_my_clone_API_34" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="vivo V2037" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
@@ -64,6 +78,7 @@
                   <entry key="Duration" value="90" />
                   <entry key="Pixel_7_my_clone_API_34" value="120" />
                   <entry key="Tests" value="360" />
+                  <entry key="vivo V2037" value="120" />
                 </map>
               </option>
             </AndroidTestResultsTableState>
