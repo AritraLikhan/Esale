@@ -251,9 +251,7 @@ public class ProfileFragment extends Fragment {
         Toast.makeText(getActivity(), "Profile updated successfully", Toast.LENGTH_SHORT).show();
     }
 
-    private void fetchSellerProducts() {
-        // Fetch seller's products from Firebase and display in RecyclerView
-
+    public void fetchSellerProducts() {
         String userId = mAuth.getCurrentUser().getUid();
         DatabaseReference productsRef = mDatabase.child("users").child(userId).child("Products");
 
@@ -263,11 +261,13 @@ public class ProfileFragment extends Fragment {
                 List<Product> products = new ArrayList<>();
                 for (DataSnapshot productSnapshot : dataSnapshot.getChildren()) {
                     Product product = productSnapshot.getValue(Product.class);
-                    product.setOwnerID(userId);
-                    products.add(product);
+                    if (product != null) {
+                        product.setId(productSnapshot.getKey()); // Set unique ID
+                        product.setOwnerID(userId);
+                        products.add(product);
+                    }
                 }
                 FragmentManager fragmentManager = getFragmentManager();
-                // Set up RecyclerView
                 ProductAdapter productAdapter = new ProductAdapter(products, fragmentManager);
                 recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerViewProducts.setAdapter(productAdapter);
@@ -279,6 +279,7 @@ public class ProfileFragment extends Fragment {
             }
         });
     }
+
 
 
     protected void logout() {
