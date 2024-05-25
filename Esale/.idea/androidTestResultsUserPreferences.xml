@@ -42,6 +42,7 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+<<<<<<< HEAD
         <entry key="-1594952871">
           <value>
             <AndroidTestResultsTableState>
@@ -57,13 +58,46 @@
           </value>
         </entry>
         <entry key="-1545808620">
+=======
+        <entry key="-1859742751">
+>>>>>>> 34fb4e19a7f4db497327cb36d7bdd32c55a3fc80
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">
                 <map>
                   <entry key="Duration" value="90" />
                   <entry key="Tests" value="360" />
+<<<<<<< HEAD
                   <entry key="vivo V2037" value="120" />
+=======
+                  <entry key="realme RMX3085" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="-1365242287">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="realme RMX3085" value="120" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="-1347867663">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="Duration" value="90" />
+                  <entry key="Tests" value="360" />
+                  <entry key="realme RMX3085" value="120" />
+>>>>>>> 34fb4e19a7f4db497327cb36d7bdd32c55a3fc80
                 </map>
               </option>
             </AndroidTestResultsTableState>
