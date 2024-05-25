@@ -86,6 +86,7 @@ dependencies {
     implementation("androidx.annotation:annotation:1.7.0")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("com.google.android.gms:play-services-analytics-impl:18.0.4")
     testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     debugImplementation("androidx.fragment:fragment-testing:1.7.1")
     testImplementation("junit:junit:4.13.2")

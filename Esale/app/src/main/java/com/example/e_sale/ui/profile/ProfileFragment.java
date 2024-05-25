@@ -84,7 +84,11 @@ public class ProfileFragment extends Fragment {
 //    }
 
 
-    private EditText editTextUsername, editTextEmail, editTextPassword, editTextAddress, editTextPhone;
+    protected EditText editTextUsername;
+    protected EditText editTextEmail;
+    private EditText editTextPassword;
+    protected EditText editTextAddress;
+    protected EditText editTextPhone;
     private Button buttonUpdate, buttonAddProduct;
     private Button buttonLogout;
     private RecyclerView recyclerViewProducts;
@@ -199,7 +203,7 @@ public class ProfileFragment extends Fragment {
 
 
 
-    private void fetchUserData() {
+    protected void fetchUserData() {
         // Fetch user data from Firebase and set EditText fields
         String userId = mAuth.getCurrentUser().getUid();
         DatabaseReference userRef = mDatabase.child("users").child(userId).child("Account Info");
@@ -230,13 +234,13 @@ public class ProfileFragment extends Fragment {
         String userId = mAuth.getCurrentUser().getUid();
         DatabaseReference userRef = mDatabase.child("users").child(userId).child("Account Info");
 
-        String username = editTextUsername.getText().toString().trim();
+        String userName = editTextUsername.getText().toString().trim();
         String email = editTextEmail.getText().toString().trim();
         String phone = editTextPhone.getText().toString().trim();
         String address = editTextAddress.getText().toString().trim();
 
-        if (!username.isEmpty()) {
-            userRef.child("username").setValue(username);
+        if (!userName.isEmpty()) {
+            userRef.child("userName").setValue(userName);
         }
         if (!email.isEmpty()) {
             userRef.child("email").setValue(email);

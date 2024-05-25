@@ -1,7 +1,6 @@
 package com.example.e_sale.UnitTestings;
 
 import static org.junit.Assert.assertNotNull;
-import static org.mockito.Mockito.when;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,37 +12,31 @@ import androidx.test.core.app.ApplicationProvider;
 
 import com.example.e_sale.R;
 import com.example.e_sale.ui.login.LoginFragment;
-import com.example.e_sale.ui.reg.RegFragment;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.example.e_sale.ui.profile.UploadFragment;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
-public class LoginFragmentTest {
+public class UploadFragmentTest {
 
     @Test
     public void testFragmentInstantiation() {
-        FragmentScenario<LoginFragment> scenario = FragmentScenario.launchInContainer(LoginFragment.class);
+        FragmentScenario<UploadFragment> scenario = FragmentScenario.launchInContainer(UploadFragment.class);
         scenario.onFragment(fragment -> {
             assertNotNull(fragment);
         });
     }
 
     @Test
-    public void testLoginButton() {
-        FragmentScenario<LoginFragment> scenario = FragmentScenario.launchInContainer(LoginFragment.class);
+    public void testUploadButton() {
+        FragmentScenario<UploadFragment> scenario = FragmentScenario.launchInContainer(UploadFragment.class);
         scenario.onFragment(fragment -> {
             LayoutInflater inflater = (LayoutInflater) ApplicationProvider.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View view = inflater.inflate(R.layout.fragment_login, null, false);
-            Button logInButton = view.findViewById(R.id.buttonLogin);
-            assertNotNull(logInButton);
+            View view = inflater.inflate(R.layout.fragment_upload, null, false);
+            Button UploadButton = view.findViewById(R.id.buttonUploadPhoto);
+            assertNotNull(UploadButton);
         });
     }
 
     // Additional tests for input validation and sign-up logic can be added here
+
 }

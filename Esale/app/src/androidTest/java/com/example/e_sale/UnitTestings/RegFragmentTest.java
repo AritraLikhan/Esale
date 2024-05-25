@@ -25,22 +25,6 @@ import org.mockito.MockitoAnnotations;
 
 public class RegFragmentTest {
 
-    @Mock
-    FirebaseAuth mockFirebaseAuth;
-    @Mock
-    FirebaseDatabase mockFirebaseDatabase;
-    @Mock
-    DatabaseReference mockDatabaseReference;
-    @Mock
-    FirebaseUser mockFirebaseUser;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-        when(mockFirebaseAuth.getCurrentUser()).thenReturn(mockFirebaseUser);
-        when(mockFirebaseDatabase.getReference()).thenReturn(mockDatabaseReference);
-    }
-
     @Test
     public void testFragmentInstantiation() {
         FragmentScenario<RegFragment> scenario = FragmentScenario.launchInContainer(RegFragment.class);
