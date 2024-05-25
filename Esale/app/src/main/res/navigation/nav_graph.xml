@@ -17,4 +17,12 @@
         android:id="@+id/loginFragment"
         android:name="com.example.e_sale.ui.login.LoginFragment"
         android:label="LoginFragment" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/profileFragment"-->
+<!--        android:name="com.example.e_sale.ui.profile.ProfileFragment"-->
+<!--        android:label="ProfileFragment">-->
+<!--    </fragment>-->
+
+
 </navigation>
