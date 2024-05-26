@@ -6,22 +6,24 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".ui.login.LoginFragment"
+    android:background="@drawable/regbg"
     android:id="@+id/loginFragment">
 
 
     <ImageView
-        android:layout_width="356dp"
-        android:layout_height="249dp"
+        android:layout_width="312dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="40dp"
+        android:paddingLeft="110dp"
+        android:paddingRight="50dp"
         android:scaleType="fitXY"
-        android:paddingLeft="22dp"
-        android:paddingRight="26dp"
         android:src="@drawable/cart" />
-
 
     <EditText
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
