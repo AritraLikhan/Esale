@@ -1,5 +1,6 @@
 package com.example.e_sale.ui.home;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,7 +74,8 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         HomeProduct product = products.get(position);
-        holder.textViewDescription.setText(product.getName());
+        String boldText = "<b>" + product.getName() + "</b>";
+        holder.textViewDescription.setText(Html.fromHtml(boldText, Html.FROM_HTML_MODE_LEGACY));
         Picasso.get().load(product.getPhotoUrl()).into(holder.imageViewProduct);
         holder.imageViewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
