@@ -1,6 +1,6 @@
 package com.example.e_sale.ui.home;
 
-public class HomeProduct {
+public class HomeProduct implements java.io.Serializable {
 
     private String name;
     private String photoUrl;

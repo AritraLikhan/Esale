@@ -1,6 +1,7 @@
 package com.example.e_sale.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -83,9 +84,10 @@ public class HomeFragment extends Fragment {
                 HomeProductAdapter productAdapter = new HomeProductAdapter(products, getFragmentManager());
                 recyclerViewProducts.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-                HomeProductAdapter homeproductAdapter = HomeProductAdapter.getInstance(products);
+                HomeProductAdapter homeproductAdapter = HomeProductAdapter.getInstance(products, getFragmentManager());
 
                 recyclerViewProducts.setAdapter(homeproductAdapter);
+                Log.d("Data", "Data: " + products.size());
             }
 
             @Override
