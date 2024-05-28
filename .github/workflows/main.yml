@@ -22,10 +22,6 @@ jobs:
       - name: Grant execute permission to gradlew
         run: chmod +x Esale/gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
-        working-directory: Esale
-
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
         with:
