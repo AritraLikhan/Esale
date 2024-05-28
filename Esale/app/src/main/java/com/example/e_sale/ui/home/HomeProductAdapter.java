@@ -1,5 +1,6 @@
 package com.example.e_sale.ui.home;
 
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
     // Private constructor to prevent direct instantiation
     private HomeProductAdapter(List<HomeProduct> products) {
         this.products = products;
-        this.fragmentManager = fragmentManager;
+
     }
 
 
@@ -39,7 +40,15 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
             instance = new HomeProductAdapter(products);
         } else {
             instance.updateProducts(products);
-            instance.fragmentManager = fragmentManager;
+        }
+        return instance;
+    }
+
+    public static HomeProductAdapter getInstance(List<HomeProduct> products, FragmentManager fragmentManager) {
+        if (instance == null) {
+            instance = new HomeProductAdapter(products, fragmentManager);
+        } else {
+            instance.updateProducts(products);
         }
         return instance;
     }
@@ -52,7 +61,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
 
     public HomeProductAdapter(List<com.example.e_sale.ui.home.HomeProduct> products, FragmentManager fragmentManager) {
         this.products = products;
-        this.fragmentManager = fragmentManager;
+        HomeProductAdapter.fragmentManager = fragmentManager;
     }
 
     @NonNull
@@ -65,12 +74,13 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         HomeProduct product = products.get(position);
-        holder.textViewDescription.setText(product.getName());
+        String boldText = "<b>" + product.getName() + "</b>";
+        holder.textViewDescription.setText(Html.fromHtml(boldText, Html.FROM_HTML_MODE_LEGACY));
         Picasso.get().load(product.getPhotoUrl()).into(holder.imageViewProduct);
         holder.imageViewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeShowFragment homeShowFragment = new HomeShowFragment(product);
+                HomeShowFragment homeShowFragment = HomeShowFragment.newInstance(product);
                 fragmentManager.beginTransaction().replace(R.id.idFragContainer, homeShowFragment).commit();
             }
         });

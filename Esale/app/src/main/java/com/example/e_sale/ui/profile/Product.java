@@ -1,6 +1,6 @@
 package com.example.e_sale.ui.profile;
 
-public class Product {
+public class Product implements java.io.Serializable {
     private String id; // Unique ID for each product
     private String description;
     private String photoUrl;

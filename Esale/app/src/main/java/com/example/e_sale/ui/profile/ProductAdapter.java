@@ -43,7 +43,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Picasso.get().load(product.getPhotoUrl()).into(holder.imageViewProduct);
 
         holder.imageViewProduct.setOnClickListener(v -> {
-            ShowFragment showFragment = new ShowFragment(product);
+            ShowFragment showFragment = ShowFragment.newInstance(product);
             fragmentManager.beginTransaction().replace(R.id.idFragContainer, showFragment).commit();
         });
 
@@ -66,6 +66,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                 }
             });
         });
+
+        holder.buttonEdit.setOnClickListener(v -> {
+            EditProduct editProduct = EditProduct.newInstance(product);
+            fragmentManager.beginTransaction().replace(R.id.idFragContainer, editProduct).commit();
+        });
+
     }
 
     @Override
@@ -76,13 +82,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewDescription;
         public ImageView imageViewProduct;
-        public Button buttonDelete;
+        public Button buttonDelete, buttonEdit;
 
         public ProductViewHolder(View itemView) {
             super(itemView);
             textViewDescription = itemView.findViewById(R.id.textViewDescription);
             imageViewProduct = itemView.findViewById(R.id.imageViewProduct);
             buttonDelete = itemView.findViewById(R.id.buttonDelete);
+            buttonEdit = itemView.findViewById(R.id.buttonEdit);
         }
     }
 }

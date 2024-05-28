@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main,branch(likhan),sumaiya,hanium]
   push:
-    branches: [main]
+    branches: [main,branch(likhan),sumaiya,hanium]
 
 jobs:
   build:
@@ -20,15 +20,15 @@ jobs:
           distribution: 'adopt'
 
       - name: Grant execute permission to gradlew
-        run: chmod +x ./gradlew
+        run: chmod +x Esale/gradlew
 
       - name: Build with Gradle
         run: ./gradlew build
+        working-directory: Esale
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
         with:
-          name: AndroidCICD
-          path: |
-            app/build/outputs/apk/debug/app-debug.apk
+          name: Esale.apk
+          path: Esale/app/build/outputs/apk/debug/app-debug.apk
             # Add paths to other artifacts if needed
