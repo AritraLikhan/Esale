@@ -5,14 +5,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.testing.FragmentScenario;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_sale.R;
 import com.example.e_sale.ui.Show.HomeShowFragment;
 import com.example.e_sale.ui.home.HomeProduct;
 import com.example.e_sale.ui.home.HomeProductAdapter;
-import com.squareup.picasso.Picasso;
+
 
 import org.junit.Before;
 import org.junit.Test;
