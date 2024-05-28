@@ -20,11 +20,11 @@ jobs:
           distribution: 'adopt'
 
       - name: Grant execute permission to gradlew
-        run: chmod +x ./Esale/gradlew
+        run: chmod +x Esale/gradlew
 
       - name: Build with Gradle
-        run: ./Esale/gradlew build
-        working-directory: ./Esale
+        run: ./gradlew build
+        working-directory: Esale
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
