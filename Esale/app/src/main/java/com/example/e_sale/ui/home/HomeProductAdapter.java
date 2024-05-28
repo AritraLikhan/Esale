@@ -30,7 +30,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
     // Private constructor to prevent direct instantiation
     private HomeProductAdapter(List<HomeProduct> products) {
         this.products = products;
-        this.fragmentManager = fragmentManager;
+
     }
 
 
@@ -40,7 +40,15 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
             instance = new HomeProductAdapter(products);
         } else {
             instance.updateProducts(products);
-            instance.fragmentManager = fragmentManager;
+        }
+        return instance;
+    }
+
+    public static HomeProductAdapter getInstance(List<HomeProduct> products, FragmentManager fragmentManager) {
+        if (instance == null) {
+            instance = new HomeProductAdapter(products, fragmentManager);
+        } else {
+            instance.updateProducts(products);
         }
         return instance;
     }
@@ -53,7 +61,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
 
     public HomeProductAdapter(List<com.example.e_sale.ui.home.HomeProduct> products, FragmentManager fragmentManager) {
         this.products = products;
-        this.fragmentManager = fragmentManager;
+        HomeProductAdapter.fragmentManager = fragmentManager;
     }
 
     @NonNull
@@ -72,7 +80,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
         holder.imageViewProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeShowFragment homeShowFragment = new HomeShowFragment(product);
+                HomeShowFragment homeShowFragment = HomeShowFragment.newInstance(product);
                 fragmentManager.beginTransaction().replace(R.id.idFragContainer, homeShowFragment).commit();
             }
         });
